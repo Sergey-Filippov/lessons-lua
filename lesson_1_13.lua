@@ -10,12 +10,12 @@ function arifmetic(a,b,alfa)
 end
 function read_data()
     repeat
-        if a == nil or 0 then
+        if a == 0  or nil then
             print("Введите длину больщего основания 'а',см")  
             a  =tonumber(io.read())
         end
         if type(a) ~= "number" then a =0 end
-        if b == nil or 0 then
+        if b == 0  or nil then
             print("Введите длину меньшего основания 'b',см")  
             b  =tonumber(io.read())
         end
@@ -34,6 +34,10 @@ function read_data()
 end
 ------
 do
+    ---- on init
+    a,b,alfa = 0,0,0
+    -----------
+    
 P, S = arifmetic(read_data())
 print("Периметр равнобедренной трапеции = "..P.."см".."\n"..
 "Площадь трапеции = "..S.."кв.см.")

@@ -18,31 +18,72 @@ end
 ----------
 function read_data()
     repeat
-        io.write("Введиите коордитаты первой точки через пробел А(x,y) ")
-        local x1,y1 = io.read("*n","*n")
-        if not x1 then
-            io.write("Вы неправильно ввели координату x")    
+		
+		io.write("Введиите коордитаты первой  точки А(x,y)".."\n")
+		if x1 == nil  then
+			io.write("x = ") 
+			x1= tonumber(io.read())
+		end
+		if y1 == nil then
+			io.write("y = ")
+			y1 = tonumber(io.read())
+		end
+       if type(x1) ~= "number" then
+            print("Вы неправильно ввели координату x") 
+			x1 = nil
         end
-        if not y1 then
-            io.write("Вы неправильно ввели координату y")    
+		if type(y1) ~= "number" then
+            print("Вы неправильно ввели координату y") 
+			y1 = nil
         end
-        io.write("Введиите коордитаты второй точки B(x,y) ")
-        local x2,y2 = io.read("*n","*n")
-        if not x2 then
-            io.write("Вы неправильно ввели  координату x")    
+		
+	until x1 ~= nil and y1 ~= nil
+	-----
+	repeat
+		
+		io.write("Введиите коордитаты второй точки B(x,y)".."\n")
+		if x2 == nil  then
+			io.write("x = ") 
+			x2= tonumber(io.read())
+		end
+		if y2 == nil then
+			io.write("y = ")
+			y2 = tonumber(io.read())
+		end
+       if type(x2) ~= "number" then
+            print("Вы неправильно ввели координату x") 
+			x2 = nil
         end
-        if not y2 then
-            io.write("Вы неправильно ввели координату y")    
+		if type(y2) ~= "number" then
+            print("Вы неправильно ввели координату y") 
+			y2 = nil
         end
-        io.write("Введиите коордитаты третьей точки C(x,y) ")
-        local x3,y3 = io.read("*n","*n")
-        if not x3 then
-            io.write("Вы неправильно ввели  координату x")    
+		
+	until x2 ~= nil and y2 ~= nil
+	-----
+	repeat
+		
+		io.write("Введиите коордитаты третьей точки C(x,y)".."\n")
+		if x3 == nil  then
+			io.write("x = ") 
+			x3= tonumber(io.read())
+		end
+		if y3 == nil then
+			io.write("y = ")
+			y3 = tonumber(io.read())
+		end
+       if type(x3) ~= "number" then
+            print("Вы неправильно ввели координату x") 
+			x3 = nil
         end
-        if not y3 then
-            io.write("Вы неправильно ввели координату y")    
+		if type(y3) ~= "number" then
+            print("Вы неправильно ввели координату y") 
+			y3 = nil
         end
-    until x1 and y1 and x2 and y2 and x3 and y3
+		
+	until x3 ~= nil and y3 ~= nil
+       
+    
     return x1,y1,x2,y2,x3,y3
 end
 

@@ -38,23 +38,26 @@ function read_data()
     return a,b,c
 end
 -----
+function logik(D)
+   if D < 0 then
+      message = "Действительных корней уравнения нет" 
+   end
+   if D == 0 then
+      local x = -b/(2*a)
+      message ="Корень уравнения один x = "..x
+   end
+   if D > 0 then
+      local x1 = math.floor(100*(-b - D^0.5)/(2*a) +0.5)/100
+      local x2 = math.floor(100*(-b + D^0.5)/(2*a) +0.5)/100
+       message = "Корни квадратного уравнения равны x1 = "..x1..";  x2 = "..x2
+   end   
+   return message
+end
 do
-a,b,c = read_data()
-D = discriminant(a,b,c)
 
-if D < 0 then
-   print("Действительных корней уравнения нет") 
-end
-if D == 0 then
-   x = -b/(2*a)
-   print("Корень уравнения один x = "..x)
-end
-if D > 0 then
-   local x1 = math.floor(100*(-b - D^0.5)/(2*a) +0.5)/100
-   local x2 = math.floor(100*(-b + D^0.5)/(2*a) +0.5)/100
-    print( "Корни квадратного уравнения равны x1 = "..x1..";  x2 = "..x2)
-end
+message = logik(discriminant(read_data()))
 
+print(message)
     
 end
   

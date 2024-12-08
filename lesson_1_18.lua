@@ -25,20 +25,27 @@ end
     return x,y
 end
 -------------
-function read_data()
+function Read_number(read)
+	Number = nil
+	repeat
+		 io.write(read)
+		Number = tonumber( io.read())	
+
+	until type(Number) == "number"
+	return Number
+end
+
+function data()
     print("Введите коэффициенты системы уравнений ax+bx=c")
     repeat   
 
         repeat
             if  a1 == nil or b1 == nil or c1 == nil then
-                io.write("Введите коэффициенты первого уравнения через пробел a,b и c: ")
-                a1, b1, c1 =  io.read("n","n","n")
-            end
-            if type(a1) ~= "number" then a1 = nil end
-        
-            if type(b1) ~= "number" then b1 = nil end
-        
-            if type(c1) ~= "number" then c1 = nil end
+				a1= Read_number("Введите коэффициент первого уравнения 'a' : ")
+				b1= Read_number("Введите коэффициент первого уравнения 'b' : ")
+				c1= Read_number("Введите коэффициент первого уравнения 'c' : ")
+			end
+	
             if a1 == 0 and b1 == 0 then 
                 a1, b1 = nil,nil
                 print(" 'a' и 'b' не равны нулю одновременно")
@@ -48,14 +55,10 @@ function read_data()
 
         repeat
             if  a2 == nil or b2 == nil or c2 == nil then
-                io.write("Введите коэффициенты второго уравнения через пробел a,b и c: ")
-                a2, b2, c2 =  io.read("n","n","n")
-            end
-            if type(a2) ~= "number" then a2 = nil end
-        
-            if type(b2) ~= "number" then b2 = nil end
-        
-            if type(c2) ~= "number" then c2 = nil end
+				a2= Read_number("Введите коэффициент второго уравнения 'a' : ")
+				b2= Read_number("Введите коэффициент второго уравнения 'b' : ")
+				c2= Read_number("Введите коэффициент второго уравнения 'c' : ")
+			end
             if a2 == 0 and b2 == 0 then 
                 a2, b2 = nil,nil
                 print(" 'a' и 'b' не равны нулю одновременно")
@@ -73,7 +76,7 @@ function read_data()
 end
 ----------
 do
-   x,y = equation(read_data() )
+   x,y = equation(data() )
    print( "x = "..x)
    print( "y = "..y)
 end

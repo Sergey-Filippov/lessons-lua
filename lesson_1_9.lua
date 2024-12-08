@@ -18,7 +18,7 @@ function read_data()
 			r2 = tonumber(io.read())
 		end
 		if type(r2) ~= "number" then r2=0 end
-		if r1 >= r2 then
+		if r1 >= r2 and (r1~=0 or r2 ~=0) then
 			print("Внешний радиус не может быть меньше внутреннего !!!")
 			r1, r2 = 0, 0
 		end
